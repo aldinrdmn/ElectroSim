@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class ElectroSim {
+    public static void main(String[] args) {
+        Scanner io = new Scanner(System.in);
+
+
+        System.out.print("==== Selamat Datang di ElectroSim ====\n");
+
+       //daya listrik
+        System.out.print("Silahkan masukan daya alat listrik (dalam watt): ");
+        double daya = io.nextDouble();
+
+        //lama pemakaian
+        System.out.print("Silahkan masukan durasi pemakaian harian (dalam jam): ");
+        double durasi = io.nextDouble();
+
+        //harga tarif listrik
+        System.out.print("Silahkan masukan tarif listrik per kWh (dalam rupiah): ");
+        double tarifperkwh = io.nextDouble();
+
+        //Konversi daya ke kilowatt
+        double kwh = daya / 1000.0;
+
+        //konsumsi listrik harian
+        double penggunaanperhari = kwh * durasi;
+
+        double tarifharian = penggunaanperhari * tarifperkwh;
+        double tarifhbulanan = tarifharian * 30; 
+        double tariftahunan =   tarifharian * 365; 
+
+        System.out.println("\n=== Estimasi Biaya Listrik ===");
+        System.out.printf("Biaya harian: Rp %.2f\n", tarifharian);
+        System.out.printf("Biaya bulanan: Rp %.2f\n", tarifhbulanan);
+        System.out.printf("Biaya tahunan: Rp %.2f\n", tariftahunan);
+    }
+}
